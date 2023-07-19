@@ -1,194 +1,195 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@media (min-width: 376px) {
-  html body {
-    margin: 0;
-    height: 100vh;
-    font-family: "Roboto", sans-serif, system-ui;
-    font-size: 16px;
-    color: hsl(235, 18%, 26%);
-    background: hsl(234, 29%, 20%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@supports (display: flex) {
+  /* Desktop styles */
+  @media screen and (min-width: 930px) {
+    html body {
+      margin: 0;
+      height: 100vh;
+      font-family: "Roboto", sans-serif, system-ui;
+      font-size: 16px;
+      background: hsl(234, 29%, 20%);
+      color: hsl(235, 18%, 26%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 930px;
+      height: 640px;
+      border-radius: 40px;
+      background: hsl(0, 0%, 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .container img {
+      margin-right: 23px;
+      content: url("/assets/images/illustration-sign-up-desktop.svg");
+    }
+    .info {
+      align-self: start;
+      width: 390px;
+      margin-left: 54px;
+      margin-top: 100px;
+    }
+    .info h1 {
+      margin: 0;
+      font-size: 56px;
+      font-weight: 700;
+    }
+    .info p {
+      margin-top: 10px;
+      margin-bottom: 18px;
+      line-height: 24px;
+    }
+    .info ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      list-style-type: none;
+    }
+    .info ul li {
+      margin-top: 12px;
+      display: inline-flex;
+    }
+    .info ul li::before {
+      display: inline-flex;
+      content: url("/assets/images/icon-list.svg");
+      margin-right: 15px;
+    }
+    .info ul li:first-child {
+      margin-top: 0;
+    }
+    .info label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 45px;
+      margin-bottom: 9px;
+    }
+    .info #mailbox {
+      all: unset;
+      width: 100%;
+      height: 55px;
+      border-radius: 7px;
+      color: hsl(235, 18%, 26%);
+      outline: 1px solid hsl(231, 7%, 60%);
+      margin-bottom: 24px;
+      text-indent: 20px;
+    }
+    .info #mailbox::placeholder {
+      color: hsl(231, 7%, 60%);
+    }
+    .info #mailbox:focus {
+      outline: 2px solid hsl(234, 29%, 20%);
+    }
+    .info input[type=submit] {
+      all: unset;
+      width: 100%;
+      height: 55px;
+      border-radius: 7px;
+      cursor: pointer;
+      background: hsl(234, 29%, 20%);
+      color: hsl(0, 0%, 100%);
+      font-weight: 700;
+      text-align: center;
+    }
+    .info input[type=submit]:active {
+      background: hsl(4, 100%, 67%);
+    }
   }
-  .container {
-    width: 930px;
-    height: 640px;
-    border-radius: 40px;
-    background: hsl(0, 0%, 100%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .container img {
-    margin-right: 23px;
-    content: url("/assets/images/illustration-sign-up-desktop.svg");
-  }
-  .container div {
-    margin-left: 54px;
-    margin-top: 100px;
-  }
-  .info {
-    align-self: first baseline;
-    width: 390px;
-  }
-  .info h1 {
-    margin: 0;
-    font-size: 56px;
-    font-weight: 700;
-  }
-  .info p {
-    margin-top: 10px;
-    margin-bottom: 30px;
-    line-height: 24px;
-  }
-  .info ul {
-    padding: 0;
-    line-height: 33px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    list-style-type: none;
-  }
-  .info ul li::before {
-    content: url("/assets/images/icon-list.svg");
-    vertical-align: -12%;
-    margin-right: 15px;
-  }
-  .info label {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    margin-top: 30px;
-    margin-bottom: 9px;
-  }
-  .info input {
-    all: unset;
-    width: 390px;
-    height: 55px;
-    border-radius: 7px;
-  }
-  .info #mailbox {
-    color: hsl(235, 18%, 26%);
-    outline: 1px solid hsl(231, 7%, 60%);
-    margin-bottom: 24px;
-    text-indent: 20px;
-  }
-  .info #mailbox::placeholder {
-    color: hsl(231, 7%, 60%);
-  }
-  .info #mailbox:focus {
-    outline: 2px solid hsl(234, 29%, 20%);
-  }
-  .info input[type=submit] {
-    cursor: pointer;
-    background: hsl(234, 29%, 20%);
-    color: hsl(0, 0%, 100%);
-    font-weight: 700;
-    font-size: 16px;
-    text-align: center;
-  }
-  .info input[type=submit]:active {
-    background: hsl(4, 100%, 67%);
-  }
-  .attribution {
-    font-size: 16px;
-    text-align: center;
-    color: hsl(0, 0%, 100%);
-    position: absolute;
-    bottom: 0;
-  }
-  .attribution a {
-    color: hsl(0, 0%, 100%);
-  }
-  .attribution a:hover {
-    color: hsl(4, 100%, 67%);
-  }
-}
-@media (max-width: 376px) {
-  html body {
-    margin: 0;
-    font-family: "Roboto", sans-serif, system-ui;
-    font-size: 16px;
-  }
-  .container {
-    height: 100%;
-    width: 100%;
-    background: hsl(0, 0%, 100%);
-    color: hsl(235, 18%, 26%);
-    display: flex;
-    flex-direction: column-reverse;
-    align-content: space-between;
-  }
-  .container img {
-    content: url("/assets/images/illustration-sign-up-mobile.svg");
-  }
-  .info {
-    margin-left: 24px;
-    margin-right: 24px;
-  }
-  .info h1 {
-    margin-top: 30px;
-    margin-bottom: 22px;
-    font-size: 40px;
-    font-weight: 700;
-  }
-  .info ul {
-    margin: 0;
-    padding: 0;
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    list-style-type: none;
-  }
-  .info ul li {
-    margin-top: 18px;
-    display: inline-flex;
-  }
-  .info ul li::before {
-    display: inline-flex;
-    content: url("/assets/images/icon-list.svg");
-    vertical-align: -12%;
-    margin-right: 15px;
-  }
-  .info label {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    margin-top: 45px;
-    margin-bottom: 9px;
-  }
-  .info input {
-    all: unset;
-    width: 100%;
-    height: 55px;
-    border-radius: 7px;
-  }
-  .info #mailbox {
-    color: hsl(235, 18%, 26%);
-    outline: 1px solid hsl(231, 7%, 60%);
-    margin-bottom: 24px;
-    text-indent: 20px;
-  }
-  .info #mailbox::placeholder {
-    color: hsl(231, 7%, 60%);
-  }
-  .info #mailbox:focus {
-    outline: 2px solid hsl(234, 29%, 20%);
-  }
-  .info input[type=submit] {
-    cursor: pointer;
-    background: hsl(234, 29%, 20%);
-    color: hsl(0, 0%, 100%);
-    font-weight: 700;
-    font-size: 16px;
-    text-align: center;
-  }
-  .info input[type=submit]:active {
-    background: hsl(4, 100%, 67%);
+  /*Mobile styles */
+  @media screen and (max-width: 930px) {
+    html body {
+      margin: 0;
+      height: 100vh;
+      font-family: "Roboto", sans-serif, system-ui;
+      font-size: 16px;
+      background: hsl(0, 0%, 100%);
+      color: hsl(235, 18%, 26%);
+      display: flex;
+      justify-content: space-around;
+      align-items: start;
+    }
+    .container {
+      display: flex;
+      flex-direction: column-reverse;
+      align-content: space-between;
+    }
+    .container img {
+      content: url("/assets/images/illustration-sign-up-mobile.svg");
+    }
+    .info {
+      margin-left: 24px;
+      margin-right: 24px;
+    }
+    .info h1 {
+      margin-top: 30px;
+      margin-bottom: 22px;
+      font-size: 40px;
+      font-weight: 700;
+    }
+    .info ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      list-style-type: none;
+    }
+    .info ul li {
+      margin-top: 18px;
+      display: inline-flex;
+    }
+    .info ul li::before {
+      display: inline-flex;
+      content: url("/assets/images/icon-list.svg");
+      margin-right: 15px;
+    }
+    .info ul li:first-child {
+      margin-top: 0;
+    }
+    .info label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 45px;
+      margin-bottom: 9px;
+    }
+    .info #mailbox {
+      all: unset;
+      width: 100%;
+      height: 55px;
+      border-radius: 7px;
+      color: hsl(235, 18%, 26%);
+      outline: 1px solid hsl(231, 7%, 60%);
+      margin-bottom: 24px;
+      text-indent: 20px;
+    }
+    .info #mailbox::placeholder {
+      color: hsl(231, 7%, 60%);
+    }
+    .info #mailbox:focus {
+      outline: 2px solid hsl(234, 29%, 20%);
+    }
+    .info input[type=submit] {
+      all: unset;
+      width: 100%;
+      height: 55px;
+      border-radius: 7px;
+      cursor: pointer;
+      background: hsl(234, 29%, 20%);
+      color: hsl(0, 0%, 100%);
+      font-weight: 700;
+      text-align: center;
+    }
+    .info input[type=submit]:active {
+      background: hsl(4, 100%, 67%);
+    }
   }
 }
 

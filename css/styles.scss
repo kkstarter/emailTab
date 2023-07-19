@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
-$break-point-mobile: 376px;
+$break-point-mobile: 930px;
 $main-colors: (
     "background": hsl(234, 29%, 20%),
     "font": hsl(235, 18%, 26%),
@@ -10,235 +10,200 @@ $main-colors: (
     "error-active": hsl(4, 100%, 67%),
 );
 
-@media (min-width: $break-point-mobile) {
-    
-    html body {
-        margin: 0;
-        height: 100vh;
-        font-family: 'Roboto', sans-serif, system-ui;
-        font-size: 16px;
-        color: map-get($main-colors, "font");
-        background: map-get($main-colors, "background");
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+@mixin set-body ($background, $font-color) {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif, system-ui;
+    font-size: 16px;
+    background: $background;
+    color: $font-color;
+    display: flex;
+}
 
-    .container {
-        width: 930px;
-        height: 640px;
-        border-radius: 40px;
-        background: map-get($main-colors, "light-bg");
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+@mixin set-input-size {
+    all: unset;
+    width: 100%;
+    height: 55px;
+    border-radius: 7px;
+}
 
-        img {
-            margin-right: 23px;
-            content: url("/assets/images/illustration-sign-up-desktop.svg");
-        }
+@mixin set-buttons {
+    @include set-input-size;
+    cursor: pointer;
+    background: map-get($main-colors, "background");
+    color: map-get($main-colors, "light-bg");
+    font-weight: 700;
+    text-align: center;
 
-        div {
-            margin-left: 54px;
-            margin-top: 100px;
-        }
-    }
-
-    .info {
-
-        align-self: first baseline;
-        width: 390px;
-
-        h1 {
-            margin: 0;
-            font-size: 56px;
-            font-weight: 700;
-
-        }
-
-        p {
-            margin-top: 10px;
-            margin-bottom: 30px;
-            line-height: 24px;
-        }
-
-        ul {
-            padding: 0;
-            line-height: 33px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: start;
-            list-style-type: none;
-        }
-
-        ul li {
-            &::before {
-                content: url("/assets/images/icon-list.svg");
-                vertical-align: -12%;
-                margin-right: 15px;
-            }
-        }
-
-        label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            margin-top: 30px;
-            margin-bottom: 9px;
-        }
-
-        input {
-            all: unset;
-            width: 390px;
-            height: 55px;
-            border-radius: 7px;
-        }
-
-        #mailbox {
-            color: map-get($main-colors , "font");
-            outline: 1px solid map-get($main-colors , "mailbox");
-            margin-bottom: 24px;
-            text-indent: 20px;
-
-            &::placeholder {
-                color: map-get($main-colors , "mailbox");
-            }
-
-            &:focus {
-                outline: 2px solid map-get($main-colors, "background");
-            }
-        }
-
-        input[type="submit"] {
-            cursor: pointer;
-            background: map-get($main-colors, "background");
-            color: map-get($main-colors, "light-bg");
-            font-weight: 700;
-            font-size: 16px;
-            text-align: center;
-
-            &:active {
-                background: map-get($main-colors, "error-active");
-            }
-        }
-    }
-
-    .attribution {
-        font-size: 16px;
-        text-align: center;
-        color: map-get($main-colors , "light-bg");
-        position: absolute;
-        bottom: 0;
-
-        a {
-            color: map-get($main-colors , "light-bg");
-
-            &:hover {
-                color: map-get($main-colors, "error-active");
-            }
-        }
+    &:active {
+        background: map-get($main-colors, "error-active");
     }
 }
 
-@media (max-width: $break-point-mobile) {
+@mixin styled-list ($margin-lines) {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    list-style-type: none;
 
-    html body {
-        margin: 0;
-        font-family: 'Roboto', sans-serif, system-ui;
-        font-size: 16px;
-    }
+    li {
+        margin-top: $margin-lines;
+        display: inline-flex;
 
-    .container {
-        height: 100%;
-        width: 100%;
-        background: map-get($main-colors, "light-bg");
-        color: map-get($main-colors, "font");
-        display: flex;
-        flex-direction: column-reverse;
-        align-content: space-between;
-
-        img {
-            content: url("/assets/images/illustration-sign-up-mobile.svg");
-        }
-    }
-
-    .info {
-        margin-left: 24px;
-        margin-right: 24px;
-
-        h1 {
-            margin-top: 30px;
-            margin-bottom: 22px;
-            font-size: 40px;
-            font-weight: 700;
-        }
-
-        ul {
-            margin: 0;
-            padding: 0;
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: start;
-            list-style-type: none;
-        }
-
-        ul li {
-            margin-top: 18px;
+        &::before {
             display: inline-flex;
-            &::before {
-                display: inline-flex;
-                content: url("/assets/images/icon-list.svg");
-                vertical-align: -12%;
-                margin-right: 15px;
+            content: url("/assets/images/icon-list.svg");
+            margin-right: 15px;
+        }
+    }
+
+    li:first-child {
+        margin-top: 0;
+    }
+}
+
+@mixin email-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 45px;
+    margin-bottom: 9px;
+}
+
+@supports (display: flex) {
+    /* Desktop styles */
+    @media screen and (min-width: $break-point-mobile) {
+
+        html body {
+            @include set-body(map-get($main-colors, "background"), map-get($main-colors, "font"));
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 930px;
+            height: 640px;
+            border-radius: 40px;
+            background: map-get($main-colors, "light-bg");
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img {
+                margin-right: 23px;
+                content: url("/assets/images/illustration-sign-up-desktop.svg");
             }
+
         }
 
-        label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            margin-top: 45px;
-            margin-bottom: 9px;
-        }
+        .info {
+            align-self: start;
+            width: 390px;
+            margin-left: 54px;
+            margin-top: 100px;
 
+            h1 {
+                margin: 0;
+                font-size: 56px;
+                font-weight: 700;
 
-        input {
-            all: unset;
-            width: 100%;
-            height: 55px;
-            border-radius: 7px;
-        }
-
-        #mailbox {
-            color: map-get($main-colors , "font");
-            outline: 1px solid map-get($main-colors , "mailbox");
-            margin-bottom: 24px;
-            text-indent: 20px;
-
-            &::placeholder {
-                color: map-get($main-colors , "mailbox");
             }
 
-            &:focus {
-                outline: 2px solid map-get($main-colors, "background");
+            p {
+                margin-top: 10px;
+                margin-bottom: 18px;
+                line-height: 24px;
             }
-        }
 
-        input[type="submit"] {
-            cursor: pointer;
-            background: map-get($main-colors, "background");
-            color: map-get($main-colors, "light-bg");
-            font-weight: 700;
-            font-size: 16px;
-            text-align: center;
+            ul {
+                @include styled-list(12px);
+            }
 
-            &:active {
-                background: map-get($main-colors, "error-active");
+            label {
+                @include email-label;
+            }
+
+            #mailbox {
+                @include set-input-size;
+                color: map-get($main-colors , "font");
+                outline: 1px solid map-get($main-colors , "mailbox");
+                margin-bottom: 24px;
+                text-indent: 20px;
+
+                &::placeholder {
+                    color: map-get($main-colors , "mailbox");
+                }
+
+                &:focus {
+                    outline: 2px solid map-get($main-colors, "background");
+                }
+            }
+
+            input[type="submit"] {
+                @include set-buttons;
             }
         }
     }
-    
+    /*Mobile styles */
+    @media screen and (max-width: $break-point-mobile) {
+
+        html body {
+            @include set-body(map-get($main-colors, "light-bg"), map-get($main-colors, "font"));
+            justify-content: space-around;
+            align-items: start;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column-reverse;
+            align-content: space-between;
+
+            img {
+                content: url("/assets/images/illustration-sign-up-mobile.svg");
+            }
+        }
+
+        .info {
+            margin-left: 24px;
+            margin-right: 24px;
+
+            h1 {
+                margin-top: 30px;
+                margin-bottom: 22px;
+                font-size: 40px;
+                font-weight: 700;
+            }
+
+            ul {
+                @include styled-list(18px);
+            }
+
+            label {
+                @include email-label;
+            }
+
+            #mailbox {
+                @include set-input-size;
+                color: map-get($main-colors , "font");
+                outline: 1px solid map-get($main-colors , "mailbox");
+                margin-bottom: 24px;
+                text-indent: 20px;
+
+                &::placeholder {
+                    color: map-get($main-colors , "mailbox");
+                }
+
+                &:focus {
+                    outline: 2px solid map-get($main-colors, "background");
+                }
+            }
+
+            input[type="submit"] {
+                @include set-buttons;
+            }
+        }
+    }
 }
