@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+/* Variables that determines design breakpoints and colors */
 
 $break-point-mobile: 930px;
 $main-colors: (
@@ -9,6 +10,9 @@ $main-colors: (
     "light-bg": hsl(0, 0%, 100%),
     "error-active": hsl(4, 100%, 67%),
 );
+
+/* This mixins uses for defining desktop/mobile styles via reusable code.
+Same CSS approach for both designs, but different values. */
 
 @mixin set-body ($background, $font-color) {
     margin: 0;
@@ -25,19 +29,6 @@ $main-colors: (
     width: 100%;
     height: 55px;
     border-radius: 7px;
-}
-
-@mixin set-buttons {
-    @include set-input-size;
-    cursor: pointer;
-    background: map-get($main-colors, "background");
-    color: map-get($main-colors, "light-bg");
-    font-weight: 700;
-    text-align: center;
-
-    &:active {
-        background: map-get($main-colors, "error-active");
-    }
 }
 
 @mixin styled-list ($margin-lines) {
@@ -65,16 +56,64 @@ $main-colors: (
     }
 }
 
-@mixin email-label {
-    display: block;
-    font-size: 12px;
+/* Declaration of common styles for both pages */
+
+.main-button {
+    all: unset;
+    @include set-input-size;
+    cursor: pointer;
+    background: map-get($main-colors, "background");
+    color: map-get($main-colors, "light-bg");
     font-weight: 700;
-    margin-top: 45px;
-    margin-bottom: 9px;
+    text-align: center;
+    line-height: 55px;
+
+    &:active {
+        background: map-get($main-colors, "error-active");
+    }
+}
+
+#mailbox {
+    @include set-input-size;
+    color: map-get($main-colors , "font");
+    outline: 1px solid map-get($main-colors , "mailbox");
+    margin-bottom: 24px;
+    text-indent: 20px;
+
+    &::placeholder {
+        color: map-get($main-colors , "mailbox");
+    }
+
+    &:focus {
+        outline: 2px solid map-get($main-colors, "background");
+    }
+}
+
+.input-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 45px;
+    padding-bottom: 9px;
+
+    .label-error {
+        color: map-get($main-colors, "error-active");
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    label {
+        font-size: 12px;
+        font-weight: 700;
+    }
 }
 
 @supports (display: flex) {
-    /* Desktop styles */
+
+    /* Desktop styles declared here*/
+
     @media screen and (min-width: $break-point-mobile) {
 
         html body {
@@ -92,7 +131,7 @@ $main-colors: (
             justify-content: space-between;
             align-items: center;
 
-            img {
+            img#logoGraphics {
                 margin-right: 23px;
                 content: url("/assets/images/illustration-sign-up-desktop.svg");
             }
@@ -121,38 +160,45 @@ $main-colors: (
             ul {
                 @include styled-list(12px);
             }
+        }
 
-            label {
-                @include email-label;
+        .wrapper-success {
+            background: map-get($main-colors, "light-bg");
+            border-radius: 40px;
+            width: 380px;
+            height: 420px;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
+
+            h1 {
+                margin-top: 40px;
+                margin-bottom: 25px;
+                font-size: 56px;
+                font-weight: 700;
+                line-height: 56px;
             }
 
-            #mailbox {
-                @include set-input-size;
-                color: map-get($main-colors , "font");
-                outline: 1px solid map-get($main-colors , "mailbox");
-                margin-bottom: 24px;
-                text-indent: 20px;
-
-                &::placeholder {
-                    color: map-get($main-colors , "mailbox");
-                }
-
-                &:focus {
-                    outline: 2px solid map-get($main-colors, "background");
-                }
+            p {
+                margin: 0;
+                margin-bottom: 40px;
+                line-height: 24.5px;
             }
 
-            input[type="submit"] {
-                @include set-buttons;
+            #emailTarget {
+                font-weight: 700;
             }
         }
     }
-    /*Mobile styles */
+
+    /*Mobile styles declared here*/
+
     @media screen and (max-width: $break-point-mobile) {
 
         html body {
             @include set-body(map-get($main-colors, "light-bg"), map-get($main-colors, "font"));
-            justify-content: space-around;
             align-items: start;
         }
 
@@ -161,7 +207,7 @@ $main-colors: (
             flex-direction: column-reverse;
             align-content: space-between;
 
-            img {
+            img#logoGraphics {
                 content: url("/assets/images/illustration-sign-up-mobile.svg");
             }
         }
@@ -180,29 +226,40 @@ $main-colors: (
             ul {
                 @include styled-list(18px);
             }
+        }
 
-            label {
-                @include email-label;
+        .wrapper-success {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px;
+            height: calc(100vh - 50px);
+
+
+            h1 {
+                margin-top: 40px;
+                margin-bottom: 25px;
+                font-size: 56px;
+                font-weight: 700;
+                line-height: 56px;
             }
 
-            #mailbox {
-                @include set-input-size;
-                color: map-get($main-colors , "font");
-                outline: 1px solid map-get($main-colors , "mailbox");
-                margin-bottom: 24px;
-                text-indent: 20px;
-
-                &::placeholder {
-                    color: map-get($main-colors , "mailbox");
-                }
-
-                &:focus {
-                    outline: 2px solid map-get($main-colors, "background");
-                }
+            p {
+                margin: 0;
+                margin-bottom: 40px;
+                line-height: 24px;
             }
 
-            input[type="submit"] {
-                @include set-buttons;
+            #emailTarget {
+                font-weight: 700;
+            }
+
+            .textbox {
+                margin-top: 125px;
+            }
+
+            button {
+                margin-bottom: 15px;
             }
         }
     }

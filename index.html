@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="./css/main_styles.css">
   <script src="./js/main.js" defer></script>
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 
 </head>
@@ -27,18 +26,17 @@
           <li>And much more!</li>
         </ul>
         <form>
-          <label for="mailbox">Email address</label>
+          <div class="input-info">
+            <label for="mailbox">Email address</label>
+            <span id="warning" class="label-error"></span>
+          </div>
           <input id="mailbox" name="mailbox" type="email" placeholder="email@company.com">
-          <input for="mailbox" type="submit" value="Subscribe to monthly newsletter">
+          <input id="sendButton" class="main-button" for="mailbox" type="submit" value="Subscribe to monthly newsletter">
         </form>
       </div>
-      <img alt="Graphics placement">
+      <img id="logoGraphics" alt="Graphics placement">
     </div>
   </main>
-
-  <footer>
-    
-  </footer>
 
 </body>
 
