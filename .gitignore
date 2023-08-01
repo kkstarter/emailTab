@@ -5,6 +5,11 @@
 *.sketch
 *.fig
 
+text_storage
+style-guide.md
+/assets/fonts
+/designs/
+
 # Avoid accidental XD upload if you convert the design file
 ###############################################
 ## Please do not remove line 12 - thanks! 🙂 ##
