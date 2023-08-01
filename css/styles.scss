@@ -46,7 +46,7 @@ Same CSS approach for both designs, but different values. */
 
         &::before {
             display: inline-flex;
-            content: url("images/icon-list.svg");
+            content: url("/images/icon-list.svg");
             margin-right: 15px;
         }
     }
@@ -158,7 +158,7 @@ Same CSS approach for both designs, but different values. */
 
             img#logoGraphics {
                 margin-right: 23px;
-                content: url("images/illustration-sign-up-desktop.svg");
+                content: url("/images/illustration-sign-up-desktop.svg");
             }
 
         }
@@ -221,7 +221,7 @@ Same CSS approach for both designs, but different values. */
             align-content: space-between;
 
             img#logoGraphics {
-                content: url("images/illustration-sign-up-mobile.svg");
+                content: url("/images/illustration-sign-up-mobile.svg");
             }
         }
 
