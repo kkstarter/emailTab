@@ -11,7 +11,7 @@ $main-colors: (
     "error-active": hsl(4, 100%, 67%),
 );
 
-/* This mixins uses for defining desktop/mobile styles via reusable code.
+/* This mixins used for defining desktop/mobile styles via reusable code.
 Same CSS approach for both designs, but different values. */
 
 @mixin set-body ($background, $font-color) {
@@ -46,7 +46,7 @@ Same CSS approach for both designs, but different values. */
 
         &::before {
             display: inline-flex;
-            content: url("/images/icon-list.svg");
+            content: url("images/icon-list.svg");
             margin-right: 15px;
         }
     }
@@ -67,6 +67,14 @@ Same CSS approach for both designs, but different values. */
     font-weight: 700;
     text-align: center;
     line-height: 55px;
+
+    &:hover {
+        outline: 2px solid map-get($main-colors, "mailbox");
+    }
+
+    &:focus {
+        outline: 2px solid map-get($main-colors, "mailbox");
+    }
 
     &:active {
         background: map-get($main-colors, "error-active");
@@ -110,6 +118,23 @@ Same CSS approach for both designs, but different values. */
     }
 }
 
+.wrapper-success {
+
+    h1 {
+        margin-top: 40px;
+        margin-bottom: 25px;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 56px;
+    }
+
+    p {
+        margin: 0;
+        margin-bottom: 40px;
+        line-height: 24px;
+    }
+}
+
 @supports (display: flex) {
 
     /* Desktop styles declared here*/
@@ -133,7 +158,7 @@ Same CSS approach for both designs, but different values. */
 
             img#logoGraphics {
                 margin-right: 23px;
-                content: url("/images/illustration-sign-up-desktop.svg");
+                content: url("images/illustration-sign-up-desktop.svg");
             }
 
         }
@@ -173,20 +198,6 @@ Same CSS approach for both designs, but different values. */
             justify-content: space-between;
             align-items: start;
 
-            h1 {
-                margin-top: 40px;
-                margin-bottom: 25px;
-                font-size: 56px;
-                font-weight: 700;
-                line-height: 56px;
-            }
-
-            p {
-                margin: 0;
-                margin-bottom: 40px;
-                line-height: 24.5px;
-            }
-
             #emailTarget {
                 font-weight: 700;
             }
@@ -199,7 +210,9 @@ Same CSS approach for both designs, but different values. */
 
         html body {
             @include set-body(map-get($main-colors, "light-bg"), map-get($main-colors, "font"));
-            align-items: start;
+            display: flex;
+            justify-content: center;
+
         }
 
         .container {
@@ -208,7 +221,7 @@ Same CSS approach for both designs, but different values. */
             align-content: space-between;
 
             img#logoGraphics {
-                content: url("/images/illustration-sign-up-mobile.svg");
+                content: url("images/illustration-sign-up-mobile.svg");
             }
         }
 
@@ -234,21 +247,6 @@ Same CSS approach for both designs, but different values. */
             justify-content: space-between;
             padding: 25px;
             height: calc(100vh - 50px);
-
-
-            h1 {
-                margin-top: 40px;
-                margin-bottom: 25px;
-                font-size: 56px;
-                font-weight: 700;
-                line-height: 56px;
-            }
-
-            p {
-                margin: 0;
-                margin-bottom: 40px;
-                line-height: 24px;
-            }
 
             #emailTarget {
                 font-weight: 700;

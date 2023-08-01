@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 /* Variables that determines design breakpoints and colors */
-/* This mixins uses for defining desktop/mobile styles via reusable code.
+/* This mixins used for defining desktop/mobile styles via reusable code.
 Same CSS approach for both designs, but different values. */
 /* Declaration of common styles for both pages */
 .main-button {
@@ -15,6 +15,12 @@ Same CSS approach for both designs, but different values. */
   font-weight: 700;
   text-align: center;
   line-height: 55px;
+}
+.main-button:hover {
+  outline: 2px solid hsl(231, 7%, 60%);
+}
+.main-button:focus {
+  outline: 2px solid hsl(231, 7%, 60%);
 }
 .main-button:active {
   background: hsl(4, 100%, 67%);
@@ -56,6 +62,19 @@ Same CSS approach for both designs, but different values. */
   font-weight: 700;
 }
 
+.wrapper-success h1 {
+  margin-top: 40px;
+  margin-bottom: 25px;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 56px;
+}
+.wrapper-success p {
+  margin: 0;
+  margin-bottom: 40px;
+  line-height: 24px;
+}
+
 @supports (display: flex) {
   /* Desktop styles declared here*/
   @media screen and (min-width: 930px) {
@@ -81,7 +100,7 @@ Same CSS approach for both designs, but different values. */
     }
     .container img#logoGraphics {
       margin-right: 23px;
-      content: url("/images/illustration-sign-up-desktop.svg");
+      content: url("images/illustration-sign-up-desktop.svg");
     }
     .info {
       align-self: start;
@@ -114,7 +133,7 @@ Same CSS approach for both designs, but different values. */
     }
     .info ul li::before {
       display: inline-flex;
-      content: url("/images/icon-list.svg");
+      content: url("images/icon-list.svg");
       margin-right: 15px;
     }
     .info ul li:first-child {
@@ -131,18 +150,6 @@ Same CSS approach for both designs, but different values. */
       justify-content: space-between;
       align-items: start;
     }
-    .wrapper-success h1 {
-      margin-top: 40px;
-      margin-bottom: 25px;
-      font-size: 56px;
-      font-weight: 700;
-      line-height: 56px;
-    }
-    .wrapper-success p {
-      margin: 0;
-      margin-bottom: 40px;
-      line-height: 24.5px;
-    }
     .wrapper-success #emailTarget {
       font-weight: 700;
     }
@@ -157,7 +164,8 @@ Same CSS approach for both designs, but different values. */
       background: hsl(0, 0%, 100%);
       color: hsl(235, 18%, 26%);
       display: flex;
-      align-items: start;
+      display: flex;
+      justify-content: center;
     }
     .container {
       display: flex;
@@ -165,7 +173,7 @@ Same CSS approach for both designs, but different values. */
       align-content: space-between;
     }
     .container img#logoGraphics {
-      content: url("/images/illustration-sign-up-mobile.svg");
+      content: url("images/illustration-sign-up-mobile.svg");
     }
     .info {
       margin-left: 24px;
@@ -192,7 +200,7 @@ Same CSS approach for both designs, but different values. */
     }
     .info ul li::before {
       display: inline-flex;
-      content: url("/images/icon-list.svg");
+      content: url("images/icon-list.svg");
       margin-right: 15px;
     }
     .info ul li:first-child {
@@ -204,18 +212,6 @@ Same CSS approach for both designs, but different values. */
       justify-content: space-between;
       padding: 25px;
       height: calc(100vh - 50px);
-    }
-    .wrapper-success h1 {
-      margin-top: 40px;
-      margin-bottom: 25px;
-      font-size: 56px;
-      font-weight: 700;
-      line-height: 56px;
-    }
-    .wrapper-success p {
-      margin: 0;
-      margin-bottom: 40px;
-      line-height: 24px;
     }
     .wrapper-success #emailTarget {
       font-weight: 700;
