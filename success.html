@@ -20,13 +20,12 @@
             </div>
             <a class="main-button" href="index.html">Dismiss message</a>
         </div>
+        <script>
+            const email = sessionStorage.getItem("email");
+            const emailTarget = document.getElementById("emailTarget");
+            emailTarget.innerText = email;
+        </script>
     </main>
-
-    <script>
-        const email = sessionStorage.getItem("email");
-        const emailTarget = document.getElementById("emailTarget");
-        emailTarget.innerText = email;
-    </script>
 
 </body>
 
